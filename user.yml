@@ -1,0 +1,10 @@
+---
+- name: to create a user
+  hosts: all
+  tasks: 
+   - name: create user
+     user:
+      name: uio
+      password: 1234
+      uid: 1006
+...

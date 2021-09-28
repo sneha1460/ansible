@@ -1,0 +1,22 @@
+---
+- name: to install apache2, replace, restart, and to check url response
+  hosts: all
+  tasks:
+   - name: to install apache2
+     apt:
+      name: apache2
+      state: present
+      update_cache: yes
+   - name: Replace the content
+     copy:
+      content: "helloo"
+      dest: /var/www/html/index.html
+   - name: Restart apache2
+     service:
+      name: apache2
+      state: restarted
+   - name: to check url response
+     uri:
+      url: https://3.86.42.79
+      status_code: 200
+...

@@ -1,0 +1,17 @@
+---
+- name: Creating user and file and giving permission
+  hosts: all
+  tasks:
+   - name: create a user
+     user:
+      name: ABC
+      password: sneha
+      uid: 1077
+      home: /home/ABC
+   - name: creating a file
+     file: 
+      name: xyz.txt
+      state: touch
+      mode: 700
+
+...

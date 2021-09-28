@@ -1,0 +1,13 @@
+---
+- name: to create directory and copy file
+  hosts: all
+  tasks:
+   - name: to create directory
+     file:
+      name: tyu
+      state: directory
+   - name: to copy 
+     copy:
+      src: tree.yml
+      dest: /home/ubuntu/tyu
+...
