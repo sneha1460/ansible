@@ -1,0 +1,16 @@
+---
+- name: to check loop
+  hosts: all
+  tasks: 
+   - name: to check with loop
+     apt:
+      name: "{{item}}"
+      state: present
+      update_cache: yes
+     with_items:
+     - tree
+     - apache2
+     - tomcat9
+     - git
+     - maven
+...

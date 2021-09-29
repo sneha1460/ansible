@@ -1,0 +1,15 @@
+---
+- name: Install / uninstall Apps
+  hosts: all
+  tasks:
+   - name: Install / uninstall Apps
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+   - name: create user
+     user:
+      name: "{{d}}"
+      password: "{{e}}"
+
+...

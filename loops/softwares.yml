@@ -1,0 +1,16 @@
+---
+- name: Install/uninstall software
+  hosts: all
+  tasks:
+   - name: install
+     apt:
+      name: "{{item}}"
+      state: absent
+      update_cache: yes
+     with_items:
+      - tomcat9
+      - tree
+      - git
+      - maven
+      - apache2
+...

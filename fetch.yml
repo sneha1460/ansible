@@ -1,0 +1,16 @@
+---
+- name: Copy from server 1 and paste it in server 2
+  hosts: 172.31.81.30
+  tasks:
+   - name: copy from server1
+     fetch:
+      src: sneha.txt
+      dest: /home/ubuntu/
+- name: paste it in server 2
+  hosts: 172.31.91.79
+  tasks:
+   - name: paste to server2
+     copy:
+      src: /home/ubuntu/172.31.81.30/sneha.txt 
+      dest: /tmp
+...   

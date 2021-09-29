@@ -1,0 +1,33 @@
+---
+- name: to install nginx, apache2, tomcat9
+  hosts: all
+  tasks:
+   - name: to install nginx
+     apt:
+      name: nginx
+      state: present
+      update_cache: yes
+   - name : to install apache2
+     apt:
+      name: apache2
+      state: present
+      update_cache : yes
+   - name : to install tomcat9
+     apt:
+      name: tomcat9
+      state: present
+      update_cache : yes
+   - name: to replace 8080 to 5050
+     replace:
+      regexp: 8080
+      replace: 5050
+      dest: /etc/tomcat9/server.xml
+   - name: to copy contents in tomcat
+     copy:
+      content : "hellooooo"
+      dest: /etc/tomcat9/tomcat-user.xml
+   - name: to restart tomcat
+     service:
+      name: tomcat9
+      state: restarted
+...  

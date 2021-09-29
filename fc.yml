@@ -1,0 +1,9 @@
+---
+- name: to fetch/copy
+  hosts: 172.31.81.30
+  tasks:
+   - name: to fetch from server1
+     fetch:
+      src: /home/ubuntu/qwe.txt
+      dest: /home/ubuntu
+...
